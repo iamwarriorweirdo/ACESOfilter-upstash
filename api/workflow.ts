@@ -113,7 +113,7 @@ async function processFile(context: any, data: any) {
          
          let allowedRoles = ['employee', 'hr', 'it', 'superadmin'];
          if (docData[0].allowed_roles) {
-             try { allowedRoles = JSON.parse(docData[0].allowed_roles); } catch(e){}
+             try { allowedRoles = JSON.parse(docData[0].allowed_roles); } catch(e) { /* ignore */ }
          }
 
          return { 
@@ -215,7 +215,7 @@ async function processFile(context: any, data: any) {
 
                           return { text: result.text || "", method: `gemini-file-api-${ocrModel}`, isPartial: true };
                       } finally {
-                          try { if (googleFile) await genAI.files.delete({ name: googleFile.name }); } catch (e) {}
+                          try { if (googleFile) await genAI.files.delete({ name: googleFile.name }); } catch (e) { /* ignore */ }
                       }
                   } else {
                       let text = "";
@@ -229,7 +229,7 @@ async function processFile(context: any, data: any) {
                       return { text: text.substring(0, 50000), method: "local-extract", isPartial: true };
                   }
               } finally {
-                  try { if (fs.existsSync(tempFilePath)) fs.unlinkSync(tempFilePath); } catch (e) {}
+                  try { if (fs.existsSync(tempFilePath)) fs.unlinkSync(tempFilePath); } catch (e) { /* ignore */ }
               }
           } else {
               const res = await fetch(url);
