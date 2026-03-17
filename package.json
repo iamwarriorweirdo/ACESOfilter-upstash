@@ -7,8 +7,9 @@
     "node": "20.x"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "tsx server.ts",
     "build": "vite build",
+    "start": "NODE_ENV=production tsx server.ts",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -31,6 +32,7 @@
     "ai": "^6.0.75",
     "buffer": "^6.0.3",
     "cloudinary": "^2.0.1",
+    "express": "^5.2.1",
     "groq-sdk": "^0.3.3",
     "jszip": "^3.10.1",
     "lucide-react": "^0.300.0",
@@ -40,15 +42,21 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^9.0.0",
+    "tsx": "^4.21.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^20.19.32",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^10.0.3",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1",
     "vite": "^5.0.8"
   }
 }
