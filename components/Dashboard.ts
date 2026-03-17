@@ -89,7 +89,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
         const signRes = await fetch('/api/app?handler=sign-cloudinary');
         const signData = await signRes.json();
 
-        let uploadUrl = '';
         let publicUrl = '';
 
         if (signData.fallback) {
